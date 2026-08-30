@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/farm",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "GrokBotFarm",
+      "hasCanvas": false,
+      "bodyTextLen": 624,
+      "bodyTextHash": "a525e553a0aa0e26deb9dba8703f0f7c0ae00277f7285d1736245ca476540a84",
+      "bodyTextPrefix": "Skip to content GrokBotFarm v0.1 Experiment #1 · Day 1 Next AI d",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/farm-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "GrokBotFarm",
+      "hasCanvas": false,
+      "bodyTextLen": 624,
+      "bodyTextHash": "a525e553a0aa0e26deb9dba8703f0f7c0ae00277f7285d1736245ca476540a84",
+      "bodyTextPrefix": "Skip to content GrokBotFarm v0.1 Experiment #1 · Day 1 Next AI d",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/farm-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/farm-preview.json"
+}

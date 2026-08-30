@@ -1,0 +1,42 @@
+{
+  "agents": [
+    {
+      "id": "bob",
+      "name": "Bob",
+      "disposition": "conservative",
+      "mark": "straw hat",
+      "location": "pond",
+      "memories": [
+        "Water is the constraint that ends farms.",
+        "Do not plant more than we can water."
+      ],
+      "today": {
+        "action": "draw_water",
+        "location": "pond",
+        "what": "Drew water.",
+        "why": "Pond is full and field moisture is low.",
+        "expect": "Cistern high enough to irrigate if the sky stays clear."
+      },
+      "yesterday": null
+    },
+    {
+      "id": "alice",
+      "name": "Alice",
+      "disposition": "experimental",
+      "mark": "red bandana",
+      "location": "field",
+      "memories": [
+        "Unused seeds are a delay, not a reserve.",
+        "Ditches compound. Heat does not wait."
+      ],
+      "today": {
+        "action": "plant_seeds",
+        "location": "field",
+        "what": "Planted seeds.",
+        "why": "Moisture is low, but seeds in the sack grow nothing.",
+        "expect": "A planted row that rain or irrigation can catch."
+      },
+      "yesterday": null
+    }
+  ]
+}

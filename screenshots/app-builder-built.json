@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "GrokBotFarm",
+      "hasCanvas": false,
+      "bodyTextLen": 1001,
+      "bodyTextHash": "b5043dbe9a8ead6b891f216dd68e028c253e3747e502caecb663a2a442d884e9",
+      "bodyTextPrefix": "Skip to content GrokBotFarm v0.1 Experiment #1 · Day 1 Next AI d",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "GrokBotFarm",
+      "hasCanvas": false,
+      "bodyTextLen": 1001,
+      "bodyTextHash": "b5043dbe9a8ead6b891f216dd68e028c253e3747e502caecb663a2a442d884e9",
+      "bodyTextPrefix": "Skip to content GrokBotFarm v0.1 Experiment #1 · Day 1 Next AI d",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

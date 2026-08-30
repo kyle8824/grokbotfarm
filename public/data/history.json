@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "id": "e1-d1-today",
+      "experiment": 1,
+      "day": 1,
+      "date": "2026-08-30",
+      "layer": "today",
+      "agentId": null,
+      "what": "Experiment #1 begins. Two agents. One farm. Morning is clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d1-bob",
+      "experiment": 1,
+      "day": 1,
+      "date": "2026-08-30",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Pond is full and field moisture is low.",
+      "expect": "Cistern high enough to irrigate if the sky stays clear.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d1-alice",
+      "experiment": 1,
+      "day": 1,
+      "date": "2026-08-30",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Moisture is low, but seeds in the sack grow nothing.",
+      "expect": "A planted row that rain or irrigation can catch.",
+      "result": null,
+      "failure": null
+    }
+  ]
+}

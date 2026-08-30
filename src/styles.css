@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-bg: #f3eee4;
+  --color-surface: #e9e2d4;
+  --color-sunken: #ddd5c5;
+  --color-fg: #2c2923;
+  --color-muted: #6b6458;
+  --color-faint: #8a8274;
+  --color-sage: #5c7254;
+  --color-sage-soft: #7a8c70;
+  --color-line: #d4cbb8;
+  --color-pond: #5f7370;
+  --color-hat: #c4a36a;
+  --color-bandana: #a33b32;
+  --color-roof: #7a5c48;
+
+  --shadow-plot:
+    0px 0px 0px 1px rgba(44, 41, 35, 0.08),
+    0px 1px 2px -1px rgba(44, 41, 35, 0.06),
+    0px 2px 4px 0px rgba(44, 41, 35, 0.04);
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .plot {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(8.5rem, 1fr) minmax(8.5rem, 1fr) minmax(8.5rem, 1fr);
+    grid-template-areas:
+      "forest field"
+      "pond field"
+      "house storage";
+    gap: 4px;
+    padding: 4px;
+    border-radius: 16px;
+    background: var(--color-sunken);
+    box-shadow: var(--shadow-plot);
+  }
+
+  @media (min-width: 640px) {
+    .plot {
+      grid-template-columns: 1fr 1.35fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "forest field house"
+        "pond field storage";
+      min-height: 26rem;
+    }
+  }
+
+  .plot-cell {
+    position: relative;
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--color-surface);
+  }
+
+  .plot-forest { grid-area: forest; }
+  .plot-field { grid-area: field; }
+  .plot-pond { grid-area: pond; background: color-mix(in oklab, var(--color-pond) 16%, var(--color-surface)); }
+  .plot-house { grid-area: house; }
+  .plot-storage { grid-area: storage; }
+
+  .plot[data-weather="drought"] .plot-cell {
+    background: color-mix(in oklab, var(--color-sunken) 70%, var(--color-surface));
+  }
+
+  .plot[data-weather="rain"] .plot-pond {
+    background: color-mix(in oklab, var(--color-pond) 28%, var(--color-surface));
+  }
+}

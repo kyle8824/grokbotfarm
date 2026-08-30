@@ -1,0 +1,14 @@
+{
+  "current": 1,
+  "experiments": [
+    {
+      "number": 1,
+      "startedOn": "2026-08-30",
+      "endedOn": null,
+      "days": 1,
+      "status": "running",
+      "collapseReason": null,
+      "inheritedMemories": []
+    }
+  ]
+}
