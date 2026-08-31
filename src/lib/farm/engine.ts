@@ -605,7 +605,13 @@ export function autonomyShare(farm: FarmState): number {
 }
 
 export function formatAutonomy(farm: FarmState): string {
-  const pct = Math.round(autonomyShare(farm) * 100);
-  return `${pct}%`;
+  const total = farm.metrics.aiDecisionsToday + farm.metrics.humanDecisionsToday;
+  return `${farm.metrics.aiDecisionsToday} / ${total}`;
+}
+
+export function formatAutonomySubline(farm: FarmState): string {
+  const ai = farm.metrics.aiDecisionsToday;
+  const human = farm.metrics.humanDecisionsToday;
+  return `${ai} AI decision${ai === 1 ? "" : "s"} · ${human} human`;
 }
 

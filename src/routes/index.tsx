@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ActionBlock, FailureNote, MetricsBlock } from "@/components/observe";
+import { ActionBlock, FailureNote, InheritedMemories, MetricsBlock } from "@/components/observe";
 import { FarmMap } from "@/components/farm-map";
 import { formatDay, WEATHER_LABEL } from "@/lib/farm/labels";
 import { world } from "@/lib/farm/world";
@@ -30,8 +30,9 @@ function Home() {
         </p>
       </header>
 
-      <MetricsBlock />
       <FailureNote />
+      <InheritedMemories />
+      <MetricsBlock />
 
       <section className="grid gap-5">
         <header className="flex flex-wrap items-baseline justify-between gap-2">

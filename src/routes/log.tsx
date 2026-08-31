@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { FailureNote } from "@/components/observe";
 import { LAYER_LABEL, formatDay } from "@/lib/farm/labels";
 import type { HistoryEntry, LogLayer } from "@/lib/farm/types";
 import { world } from "@/lib/farm/world";
@@ -31,6 +32,8 @@ function LogPage() {
           {formatDay(farm.clock.dayStartedOn)} · Experiment #{farm.experiment} · Day {farm.day}
         </p>
       </header>
+
+      <FailureNote />
 
       <div className="grid gap-12">
         {LAYERS.map((layer) => {

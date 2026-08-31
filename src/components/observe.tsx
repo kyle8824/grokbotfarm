@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { formatAutonomy } from "@/lib/farm/engine";
+import { formatAutonomy, formatAutonomySubline } from "@/lib/farm/engine";
 import { LOCATION_LABEL } from "@/lib/farm/labels";
 import type { ActionRecord, Agent, FarmState } from "@/lib/farm/types";
 import { world } from "@/lib/farm/world";
@@ -7,14 +7,6 @@ import { cn } from "@/lib/utils";
 
 export function MetricsBlock({ compact = false }: { compact?: boolean }) {
   const { farm } = world;
-  const autonomy = formatAutonomy(farm);
-  const total = farm.metrics.aiDecisionsToday + farm.metrics.humanDecisionsToday;
-  const autonomyDetail =
-    total === 0
-      ? "No decisions yet today."
-      : farm.metrics.humanDecisionsToday === 0
-        ? "All of today's decisions were made by AI."
-        : `${farm.metrics.aiDecisionsToday} of ${total} decisions made by AI.`;
 
   return (
     <section
@@ -33,8 +25,8 @@ export function MetricsBlock({ compact = false }: { compact?: boolean }) {
       </div>
       <div>
         <h2 className="font-mono text-xs tracking-wide text-muted uppercase">Autonomy</h2>
-        <p className="mt-1 font-display text-2xl tabular-nums">{autonomy}</p>
-        <p className="mt-1 text-sm text-muted">{autonomyDetail}</p>
+        <p className="mt-1 font-display text-2xl tabular-nums">{formatAutonomy(farm)}</p>
+        <p className="mt-1 text-sm text-muted">{formatAutonomySubline(farm)}</p>
       </div>
     </section>
   );
@@ -87,14 +79,36 @@ export function FailureNote() {
   const failure = world.farm.failure;
   if (!failure) return null;
   return (
-    <aside className="rounded-3xl bg-surface p-4 shadow-plot">
-      <p className="font-mono text-xs tracking-wide text-muted uppercase">Collapse</p>
-      <h2 className="mt-2 font-display text-xl font-medium">{failure.message}</h2>
-      <p className="mt-2 text-sm text-muted">{failure.detail}</p>
-      <p className="mt-2 font-mono text-xs text-faint">
-        Experiment #{failure.experiment}, day {failure.day}.
+    <section
+      aria-label="Collapse"
+      className="rounded-3xl bg-sunken p-6 shadow-plot sm:p-8"
+    >
+      <p className="font-mono text-sm tracking-wide text-sage uppercase">
+        {failure.message}
       </p>
-    </aside>
+      <h2 className="mt-3 font-display text-3xl font-medium tracking-tight sm:text-4xl">
+        Experiment #{failure.experiment} COLLAPSED
+      </h2>
+      <p className="mt-3 font-mono text-sm tabular-nums text-fg">Day {failure.day}</p>
+      <p className="mt-3 text-lg text-fg">{failure.detail}</p>
+    </section>
+  );
+}
+
+export function InheritedMemories() {
+  const current = world.experiments.experiments.find(
+    (e) => e.number === world.experiments.current,
+  );
+  if (!current || current.inheritedMemories.length === 0) return null;
+  const source = current.number - 1;
+  return (
+    <section aria-label="Inherited memory" className="grid gap-2">
+      {current.inheritedMemories.map((line) => (
+        <p key={line} className="text-fg">
+          Inherited from Experiment #{source}: {line}
+        </p>
+      ))}
+    </section>
   );
 }
 
