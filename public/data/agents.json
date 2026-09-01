@@ -5,27 +5,27 @@
       "name": "Bob",
       "disposition": "conservative",
       "mark": "straw hat",
-      "location": "field",
+      "location": "pond",
       "memories": [
         "Water is the constraint that ends farms.",
         "Do not plant more than we can water."
       ],
       "today": {
+        "action": "draw_water",
+        "location": "pond",
+        "what": "Drew water.",
+        "why": "We spent eight on the field yesterday. Water is the constraint that ends farms, and a cistern that only goes down is how that story starts.",
+        "expect": "Cistern refilled enough that another clear day is not a gamble.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "water_field",
         "location": "field",
         "what": "Watered the field.",
         "why": "The row is in the ground now. Clear sky will pull moisture under twenty if we wait, and a farm that cannot water what it planted is the one that ends.",
         "expect": "East field wet enough that the sprout holds through another clear day.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "draw_water",
-        "location": "pond",
-        "what": "Drew water.",
-        "why": "Pond is full and field moisture is low.",
-        "expect": "Cistern high enough to irrigate if the sky stays clear.",
-        "result": "Cistern water +16 (now 52).",
+        "result": "East field moisture +14% (now 30%).",
         "failure": null
       }
     },
@@ -40,21 +40,21 @@
         "Ditches compound. Heat does not wait."
       ],
       "today": {
+        "action": "water_field",
+        "location": "field",
+        "what": "Watered the field.",
+        "why": "The ditch is cut. Heat does not wait, and watering through a new cut is the first proof it holds.",
+        "expect": "The growing row gets a ditch-boosted soak so moisture stays well above twenty.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "dig_irrigation",
         "location": "field",
         "what": "Dug irrigation.",
         "why": "Ditches compound and heat does not wait. A cut today means every watering after this holds longer.",
         "expect": "An irrigation ditch so the field stops bleeding moisture on clear days.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "plant_seeds",
-        "location": "field",
-        "what": "Planted seeds.",
-        "why": "Moisture is low, but seeds in the sack grow nothing.",
-        "expect": "A planted row that rain or irrigation can catch.",
-        "result": "One row seeded. Seeds remaining 9.",
+        "result": "Irrigation ditch cut. Moisture will hold longer.",
         "failure": null
       }
     }
