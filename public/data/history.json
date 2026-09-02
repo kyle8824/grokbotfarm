@@ -194,6 +194,84 @@
       "expect": "The growing row gets a ditch-boosted soak so moisture stays well above twenty.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d3-ration",
+      "experiment": 1,
+      "day": 3,
+      "date": "2026-09-01",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 12).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 12).",
+      "failure": null
+    },
+    {
+      "id": "e1-d3-bob-c",
+      "experiment": 1,
+      "day": 3,
+      "date": "2026-09-01",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "We spent eight on the field yesterday. Water is the constraint that ends farms, and a cistern that only goes down is how that story starts.",
+      "expect": "Cistern refilled enough that another clear day is not a gamble.",
+      "result": "Cistern water +16 (now 60).",
+      "failure": null
+    },
+    {
+      "id": "e1-d3-alice-c",
+      "experiment": 1,
+      "day": 3,
+      "date": "2026-09-01",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Watered the field.",
+      "why": "The ditch is cut. Heat does not wait, and watering through a new cut is the first proof it holds.",
+      "expect": "The growing row gets a ditch-boosted soak so moisture stays well above twenty.",
+      "result": "East field moisture +20% (now 47%).",
+      "failure": null
+    },
+    {
+      "id": "e1-d4-today",
+      "experiment": 1,
+      "day": 4,
+      "date": "2026-09-02",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 4. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d4-bob",
+      "experiment": 1,
+      "day": 4,
+      "date": "2026-09-02",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Harvested.",
+      "why": "The ear is ripe and dawn still takes two corn no matter how careful we are. Leaving a full row standing while the bin only shrinks is how a careful farm goes hungry.",
+      "expect": "Corn in storage and an empty field before the ration can outrun the crop.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d4-alice",
+      "experiment": 1,
+      "day": 4,
+      "date": "2026-09-02",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Unused seeds are a delay, not a reserve. The second the ear comes off, the next row goes in — heat does not wait for an empty sack.",
+      "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
+      "result": null,
+      "failure": null
     }
   ]
 }
