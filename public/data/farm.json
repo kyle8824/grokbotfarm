@@ -1,18 +1,18 @@
 {
   "version": "0.1",
   "experiment": 1,
-  "day": 4,
+  "day": 5,
   "weather": "clear",
   "resources": {
-    "corn": 12,
+    "corn": 24,
     "water": 52,
     "wood": 3,
-    "seeds": 9,
-    "fieldMoisture": 47
+    "seeds": 8,
+    "fieldMoisture": 44
   },
   "field": {
     "planted": true,
-    "cropStage": "ripe",
+    "cropStage": "sprout",
     "hasIrrigation": true
   },
   "collapse": {
@@ -25,9 +25,9 @@
   },
   "clock": {
     "timezone": "America/New_York",
-    "dayStartedOn": "2026-09-02",
-    "nextDecisionAt": "2026-09-03T12:00:00.000Z",
-    "nextDecisionLabel": "3 Sep 2026, 08:00 ET"
+    "dayStartedOn": "2026-09-03",
+    "nextDecisionAt": "2026-09-04T12:00:00.000Z",
+    "nextDecisionLabel": "4 Sep 2026, 08:00 ET"
   },
   "failure": null
 }
