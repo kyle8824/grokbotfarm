@@ -1,74 +1,83 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ActionBlock, FailureNote, InheritedMemories, MetricsBlock } from "@/components/observe";
+import {
+  FailureNote,
+  InheritedMemories,
+  MetricsBlock,
+  SlimActionCard,
+} from "@/components/observe";
 import { FarmMap } from "@/components/farm-map";
-import { formatDay, WEATHER_LABEL } from "@/lib/farm/labels";
+import { WEATHER_LABEL } from "@/lib/farm/labels";
 import { world } from "@/lib/farm/world";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
   const { farm, agents } = world;
-  const resultFallback = "No prior day. Results appear next morning.";
 
   return (
-    <div className="grid gap-10">
-      <header className="grid max-w-2xl gap-5">
-        <h1 className="font-display text-3xl font-medium leading-tight tracking-tight sm:text-4xl">
-          Two AI agents. One farm. No human hands today.
-        </h1>
-        <p className="text-lg text-fg">
-          GrokBotFarm is a persistent AI experiment. Humans define the world and
-          its rules. AI agents decide how to survive inside it.
-        </p>
-        <p>
-          <Link
-            to="/farm"
-            className="inline-flex min-h-11 items-center font-medium text-sage underline-offset-4 hover:underline"
-          >
-            Watch what happens.
-          </Link>
+    <div className="grid gap-8">
+      <header className="masthead-thin">
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <p className="font-mono text-xs tracking-wide text-sage uppercase">
+            Experiment #{farm.experiment}
+          </p>
+          <p className="font-display text-xl font-medium tracking-tight sm:text-2xl">
+            Day {farm.day}
+          </p>
+          <p className="font-mono text-xs text-muted">
+            {WEATHER_LABEL[farm.weather]}
+          </p>
+        </div>
+        <p className="font-mono text-xs text-muted sm:text-sm">
+          Next decision · {farm.clock.nextDecisionLabel}
         </p>
       </header>
 
       <FailureNote />
-      <InheritedMemories />
-      <MetricsBlock />
 
-      <section className="grid gap-5">
-        <header className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="font-display text-2xl font-medium">Today</h2>
-          <p className="font-mono text-xs text-muted">
-            {formatDay(farm.clock.dayStartedOn)} · {WEATHER_LABEL[farm.weather]}
-          </p>
-        </header>
-        <div className="grid gap-4 md:grid-cols-2">
-          {agents.agents.map((agent) => (
-            <ActionBlock
-              key={agent.id}
-              agent={agent}
-              record={agent.today}
-              resultFallback={resultFallback}
-            />
-          ))}
-        </div>
-        <p className="text-sm text-muted">
-          Yesterday's result sits next to today's decision. The engine
-          has not resolved this morning yet.
-        </p>
-      </section>
-
-      <section className="grid gap-4">
+      <section className="grid gap-3" aria-label="Living farm map">
         <div className="flex items-baseline justify-between gap-3">
-          <h2 className="font-display text-2xl font-medium">The plot</h2>
+          <h1 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
+            The farm right now
+          </h1>
           <Link
             to="/farm"
             className="font-mono text-xs text-sage underline-offset-4 hover:underline"
           >
-            Open farm
+            Full plot
           </Link>
         </div>
-        <FarmMap compact />
+        <FarmMap />
       </section>
+
+      <section className="grid gap-3" aria-label="Today's decisions">
+        <header className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="font-display text-xl font-medium">Today</h2>
+          <p className="font-mono text-xs text-muted">
+            WHAT / WHY · results land next morning
+          </p>
+        </header>
+        <div className="today-slim">
+          {agents.agents.map((agent) => (
+            <SlimActionCard key={agent.id} agent={agent} record={agent.today} />
+          ))}
+        </div>
+      </section>
+
+      <InheritedMemories />
+      <MetricsBlock compact />
+
+      <p className="max-w-2xl text-sm text-muted">
+        Two AI agents. One farm. No visitor controls.{" "}
+        <Link to="/log" className="text-sage underline-offset-4 hover:underline">
+          Read the log
+        </Link>{" "}
+        or{" "}
+        <Link to="/history" className="text-sage underline-offset-4 hover:underline">
+          experiment history
+        </Link>
+        .
+      </p>
     </div>
   );
 }

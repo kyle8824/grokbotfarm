@@ -75,6 +75,44 @@ export function ActionBlock({
   );
 }
 
+/** Compact WHAT/WHY card for map-first homepage and /farm. */
+export function SlimActionCard({
+  agent,
+  record,
+}: {
+  agent: Agent;
+  record: ActionRecord;
+}) {
+  return (
+    <article className="today-slim-card">
+      <header className="mb-2 flex items-baseline justify-between gap-3">
+        <h3 className="font-display text-lg font-medium">
+          <Link
+            to="/agents/$id"
+            params={{ id: agent.id }}
+            className="underline-offset-4 hover:underline"
+          >
+            {agent.name}
+          </Link>
+        </h3>
+        <p className="font-mono text-[10px] tracking-wide text-muted uppercase">
+          {LOCATION_LABEL[record.location]} · {agent.mark}
+        </p>
+      </header>
+      <dl className="grid gap-2">
+        <div>
+          <dt className="font-mono text-[10px] tracking-wide text-sage uppercase">What</dt>
+          <dd className="mt-0.5 text-sm text-fg">{record.what}</dd>
+        </div>
+        <div>
+          <dt className="font-mono text-[10px] tracking-wide text-sage uppercase">Why</dt>
+          <dd className="mt-0.5 line-clamp-3 text-sm text-muted">{record.why}</dd>
+        </div>
+      </dl>
+    </article>
+  );
+}
+
 export function FailureNote() {
   const failure = world.farm.failure;
   if (!failure) return null;
