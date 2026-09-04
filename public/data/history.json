@@ -350,6 +350,84 @@
       "expect": "Cistern topped so tomorrow's watering does not borrow from a thin reserve.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d5-ration",
+      "experiment": 1,
+      "day": 5,
+      "date": "2026-09-03",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 22).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 22).",
+      "failure": null
+    },
+    {
+      "id": "e1-d5-bob-c",
+      "experiment": 1,
+      "day": 5,
+      "date": "2026-09-03",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "The new sprout is in and clear sky still pulls three points a day even with the ditch. Water is the constraint that ends farms — better spend eight on wet ground than watch a fresh row dry out.",
+      "expect": "East field moisture back up so the sprout holds through another clear stretch.",
+      "result": "East field moisture +20% (now 61%).",
+      "failure": null
+    },
+    {
+      "id": "e1-d5-alice-c",
+      "experiment": 1,
+      "day": 5,
+      "date": "2026-09-03",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Drew water.",
+      "why": "We just spent nothing on the cistern while the harvest and reseeding happened. Heat does not wait, and a cistern that sits still while the next soak is coming is a delay dressed as caution.",
+      "expect": "Cistern topped so tomorrow's watering does not borrow from a thin reserve.",
+      "result": "Cistern water +16 (now 60).",
+      "failure": null
+    },
+    {
+      "id": "e1-d6-today",
+      "experiment": 1,
+      "day": 6,
+      "date": "2026-09-04",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 6. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d6-bob",
+      "experiment": 1,
+      "day": 6,
+      "date": "2026-09-04",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "Stalks just pushed into growing under clear sky. Water is the constraint that ends farms — three points a day still drip even with the ditch, and I will not let a thickening row go thirsty on my watch.",
+      "expect": "East field moisture held high so growing can push toward ripe without a dry spell.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d6-alice",
+      "experiment": 1,
+      "day": 6,
+      "date": "2026-09-04",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Chopped wood.",
+      "why": "Corn is thickening on its own now. Unused timber is a delay too — a woodpile before we need fence or fuel beats empty hands when the next idea needs boards.",
+      "expect": "Wood stock up while the crop cooks, without burning another morning on the same cistern loop.",
+      "result": null,
+      "failure": null
     }
   ]
 }
