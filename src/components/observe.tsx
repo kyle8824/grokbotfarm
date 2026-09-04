@@ -83,8 +83,9 @@ export function SlimActionCard({
   agent: Agent;
   record: ActionRecord;
 }) {
+  const persona = agent.id === "bob" ? "card-bob" : "card-alice";
   return (
-    <article className="today-slim-card">
+    <article className={cn("today-slim-card", persona)}>
       <header className="mb-2 flex items-baseline justify-between gap-3">
         <h3 className="font-display text-lg font-medium">
           <Link

@@ -1,82 +1,64 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  FailureNote,
-  InheritedMemories,
-  MetricsBlock,
-  SlimActionCard,
-} from "@/components/observe";
 import { FarmMap } from "@/components/farm-map";
+import { FailureNote } from "@/components/observe";
+import { SpectacleChrome } from "@/components/spectator";
 import { WEATHER_LABEL } from "@/lib/farm/labels";
 import { world } from "@/lib/farm/world";
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  const { farm, agents } = world;
+  const { farm } = world;
 
   return (
-    <div className="grid gap-8">
-      <header className="masthead-thin">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <p className="font-mono text-xs tracking-wide text-sage uppercase">
-            Experiment #{farm.experiment}
-          </p>
-          <p className="font-display text-xl font-medium tracking-tight sm:text-2xl">
-            Day {farm.day}
-          </p>
-          <p className="font-mono text-xs text-muted">
-            {WEATHER_LABEL[farm.weather]}
-          </p>
+    <div className="spectacle-home grid gap-5">
+      <header className="spectacle-masthead">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="font-mono text-[10px] tracking-wide text-sage uppercase">
+              Live observatory · Exp #{farm.experiment}
+            </p>
+            <h1 className="font-display text-3xl font-medium tracking-tight sm:text-4xl">
+              Day {farm.day}
+            </h1>
+            <p className="mt-1 font-mono text-xs text-muted">
+              {WEATHER_LABEL[farm.weather]} · no visitor controls
+            </p>
+          </div>
+          <Link to="/log" className="log-tap log-tap-hero">
+            Log
+          </Link>
         </div>
-        <p className="font-mono text-xs text-muted sm:text-sm">
-          Next decision · {farm.clock.nextDecisionLabel}
-        </p>
       </header>
 
       <FailureNote />
 
-      <section className="grid gap-3" aria-label="Living farm map">
-        <div className="flex items-baseline justify-between gap-3">
-          <h1 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
-            The farm right now
-          </h1>
-          <Link
-            to="/farm"
-            className="font-mono text-xs text-sage underline-offset-4 hover:underline"
-          >
-            Full plot
-          </Link>
-        </div>
-        <FarmMap />
+      <section className="grid gap-4" aria-label="Living world">
+        <FarmMap spectacle />
+        <SpectacleChrome />
       </section>
 
-      <section className="grid gap-3" aria-label="Today's decisions">
-        <header className="flex flex-wrap items-baseline justify-between gap-2">
-          <h2 className="font-display text-xl font-medium">Today</h2>
-          <p className="font-mono text-xs text-muted">
-            WHAT / WHY · results land next morning
-          </p>
-        </header>
-        <div className="today-slim">
-          {agents.agents.map((agent) => (
-            <SlimActionCard key={agent.id} agent={agent} record={agent.today} />
-          ))}
-        </div>
-      </section>
-
-      <InheritedMemories />
-      <MetricsBlock compact />
-
-      <p className="max-w-2xl text-sm text-muted">
-        Two AI agents. One farm. No visitor controls.{" "}
-        <Link to="/log" className="text-sage underline-offset-4 hover:underline">
-          Read the log
-        </Link>{" "}
-        or{" "}
+      <p className="spectacle-footnote font-mono text-[11px] text-faint">
+        Two AI agents. One farm.{" "}
         <Link to="/history" className="text-sage underline-offset-4 hover:underline">
-          experiment history
+          History
         </Link>
-        .
+        {" · "}
+        <Link
+          to="/agents/$id"
+          params={{ id: "bob" }}
+          className="text-sage underline-offset-4 hover:underline"
+        >
+          Bob
+        </Link>
+        {" · "}
+        <Link
+          to="/agents/$id"
+          params={{ id: "alice" }}
+          className="text-sage underline-offset-4 hover:underline"
+        >
+          Alice
+        </Link>
       </p>
     </div>
   );

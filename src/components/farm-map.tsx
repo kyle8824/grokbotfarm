@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
+import { memoryPlaques } from "@/lib/farm/drama";
 import { LOCATION_LABEL, WEATHER_LABEL } from "@/lib/farm/labels";
 import type {
   Agent,
@@ -24,11 +25,16 @@ function AgentFigure({ agent }: { agent: Agent }) {
     <Link
       to="/agents/$id"
       params={{ id: agent.id }}
-      className="agent-figure group relative flex w-16 flex-col items-center gap-1 text-center transition-opacity duration-150 hover:opacity-90"
+      className={cn(
+        "agent-figure group relative flex w-16 flex-col items-center gap-1 text-center transition-opacity duration-150 hover:opacity-90",
+        isBob ? "agent-bob" : "agent-alice",
+      )}
+      data-agent={agent.id}
     >
       <span className="agent-bubble" title={agent.today.what}>
         {bubble}
       </span>
+      <span className="agent-aura" aria-hidden="true" />
       <svg
         viewBox="0 0 40 52"
         className="agent-sprite h-12 w-9"
@@ -50,20 +56,28 @@ function AgentFigure({ agent }: { agent: Agent }) {
         )}
         <ellipse cx="20" cy="49" rx="8" ry="2" className="fill-fg/15" />
       </svg>
-      <span className="font-mono text-xs leading-none text-fg">{agent.name}</span>
+      <span className="agent-nameplate font-mono text-xs leading-none">
+        {agent.name}
+      </span>
     </Link>
   );
 }
 
 function ForestArt() {
   return (
-    <svg viewBox="0 0 120 80" className="h-full w-full" aria-hidden="true">
-      <polygon points="22,70 38,22 54,70" className="fill-sage" />
-      <polygon points="48,70 68,10 88,70" className="fill-sage-soft" />
-      <polygon points="72,70 90,28 108,70" className="fill-sage" />
-      <rect x="35" y="70" width="6" height="6" className="fill-roof" />
-      <rect x="63" y="70" width="8" height="6" className="fill-roof" />
-      <rect x="87" y="70" width="6" height="6" className="fill-roof" />
+    <svg viewBox="0 0 120 80" className="h-full w-full forest-art" aria-hidden="true">
+      <g className="tree-sway" style={{ animationDelay: "0ms" }}>
+        <polygon points="22,70 38,22 54,70" className="fill-sage" />
+        <rect x="35" y="70" width="6" height="6" className="fill-roof" />
+      </g>
+      <g className="tree-sway" style={{ animationDelay: "400ms" }}>
+        <polygon points="48,70 68,10 88,70" className="fill-sage-soft" />
+        <rect x="63" y="70" width="8" height="6" className="fill-roof" />
+      </g>
+      <g className="tree-sway" style={{ animationDelay: "800ms" }}>
+        <polygon points="72,70 90,28 108,70" className="fill-sage" />
+        <rect x="87" y="70" width="6" height="6" className="fill-roof" />
+      </g>
     </svg>
   );
 }
@@ -97,7 +111,7 @@ function FieldArt({
           <path
             d="M8 12 C 28 22, 48 8, 72 18 S 112 10, 152 22"
             fill="none"
-            className="stroke-pond"
+            className="stroke-pond ditch-glow"
             strokeWidth="5"
             strokeLinecap="round"
             opacity="0.55"
@@ -125,13 +139,18 @@ function FieldArt({
                   cx={x + 1.5}
                   cy={y - 1}
                   r="1.6"
-                  className="fill-roof/80"
+                  className="fill-roof/80 seed-pulse"
+                  style={{ animationDelay: `${(rowIdx + colIdx) * 90}ms` }}
                 />
               );
             }
             if (cropStage === "sprout") {
               return (
-                <g key={key} className="crop-sway" style={{ animationDelay: `${(rowIdx + colIdx) * 80}ms` }}>
+                <g
+                  key={key}
+                  className="crop-sway"
+                  style={{ animationDelay: `${(rowIdx + colIdx) * 80}ms` }}
+                >
                   <rect x={x + 1} y={y - 7} width="2" height="7" rx="1" className="fill-sage" />
                   <ellipse cx={x + 2} cy={y - 8} rx="2.2" ry="1.4" className="fill-sage-soft" />
                 </g>
@@ -139,19 +158,26 @@ function FieldArt({
             }
             if (cropStage === "growing") {
               return (
-                <g key={key} className="crop-sway" style={{ animationDelay: `${(rowIdx + colIdx) * 70}ms` }}>
+                <g
+                  key={key}
+                  className="crop-sway"
+                  style={{ animationDelay: `${(rowIdx + colIdx) * 70}ms` }}
+                >
                   <rect x={x} y={y - 14} width="3" height="14" rx="1.5" className="fill-sage" />
                   <ellipse cx={x + 1.5} cy={y - 15} rx="4" ry="2.5" className="fill-sage-soft" />
                   <ellipse cx={x - 1} cy={y - 10} rx="2.5" ry="1.5" className="fill-sage" />
                 </g>
               );
             }
-            // ripe
             return (
-              <g key={key} className="crop-sway" style={{ animationDelay: `${(rowIdx + colIdx) * 60}ms` }}>
+              <g
+                key={key}
+                className="crop-sway crop-ripe"
+                style={{ animationDelay: `${(rowIdx + colIdx) * 60}ms` }}
+              >
                 <rect x={x} y={y - 18} width="3" height="18" rx="1.5" className="fill-sage" />
                 <ellipse cx={x + 1.5} cy={y - 20} rx="4.5" ry="3" className="fill-sage-soft" />
-                <ellipse cx={x + 5} cy={y - 14} rx="3" ry="4" className="fill-hat" />
+                <ellipse cx={x + 5} cy={y - 14} rx="3" ry="4" className="fill-hat ripe-glow" />
                 <ellipse cx={x - 2} cy={y - 12} rx="2.2" ry="3" className="fill-hat/80" />
               </g>
             );
@@ -172,9 +198,17 @@ function PondArt({ water }: { water: number }) {
       <ellipse
         cx="60"
         cy="42"
+        rx={rx + 12}
+        ry={ry + 8}
+        className="fill-pond/25 pond-ring"
+        style={{ opacity: opacity * 0.55 }}
+      />
+      <ellipse
+        cx="60"
+        cy="42"
         rx={rx + 8}
         ry={ry + 6}
-        className="fill-pond/40 pond-ring"
+        className="fill-pond/40 pond-ring-inner"
         style={{ opacity: opacity * 0.7 }}
       />
       <ellipse
@@ -192,6 +226,13 @@ function PondArt({ water }: { water: number }) {
         ry={Math.max(2.5, ry * 0.22)}
         className="fill-bg/35 pond-shine"
       />
+      <ellipse
+        cx="68"
+        cy={42 + ry * 0.1}
+        rx={Math.max(4, rx * 0.16)}
+        ry={Math.max(1.5, ry * 0.12)}
+        className="fill-bg/20 pond-shine-b"
+      />
     </svg>
   );
 }
@@ -202,6 +243,8 @@ function HouseArt() {
       <polygon points="24,40 60,12 96,40" className="fill-roof" />
       <rect x="32" y="40" width="56" height="32" className="fill-sunken" />
       <rect x="52" y="50" width="16" height="22" className="fill-hat" />
+      <rect x="40" y="48" width="10" height="8" className="fill-hat/50 house-window" />
+      <rect x="70" y="48" width="10" height="8" className="fill-hat/50 house-window" />
     </svg>
   );
 }
@@ -214,10 +257,16 @@ function StorageArt({ corn, seeds }: { corn: number; seeds: number }) {
       <rect x="22" y="28" width="76" height="8" className="fill-roof" />
       <rect x="26" y="36" width="68" height="30" className="fill-sunken" />
       <rect x="54" y="46" width="14" height="20" className="fill-hat" />
-      {/* Corn bin */}
       <rect x="32" y={62 - cornH} width="14" height={cornH} rx="1" className="fill-hat" />
-      <rect x="32" y="40" width="14" height="22" rx="1" className="fill-none stroke-fg/20" strokeWidth="1" />
-      {/* Seed sack */}
+      <rect
+        x="32"
+        y="40"
+        width="14"
+        height="22"
+        rx="1"
+        className="fill-none stroke-fg/20"
+        strokeWidth="1"
+      />
       <rect x="78" y={62 - seedH} width="10" height={seedH} rx="2" className="fill-sage-soft" />
       <ellipse cx="83" cy={62 - seedH} rx="5" ry="2.5" className="fill-sage" />
     </svg>
@@ -227,14 +276,15 @@ function StorageArt({ corn, seeds }: { corn: number; seeds: number }) {
 function RainOverlay() {
   return (
     <div className="rain-overlay" aria-hidden="true">
-      {Array.from({ length: 28 }, (_, i) => (
+      {Array.from({ length: 42 }, (_, i) => (
         <span
           key={i}
           className="raindrop"
           style={{
             left: `${(i * 37) % 100}%`,
-            animationDelay: `${(i % 7) * 0.18}s`,
-            animationDuration: `${0.9 + (i % 5) * 0.15}s`,
+            animationDelay: `${(i % 9) * 0.14}s`,
+            animationDuration: `${0.75 + (i % 6) * 0.12}s`,
+            height: `${10 + (i % 5) * 3}px`,
           }}
         />
       ))}
@@ -248,12 +298,35 @@ function CloudOverlay() {
       <span className="cloud cloud-a" />
       <span className="cloud cloud-b" />
       <span className="cloud cloud-c" />
+      <span className="cloud cloud-d" />
+    </div>
+  );
+}
+
+function HeatShimmer() {
+  return <div className="heat-shimmer" aria-hidden="true" />;
+}
+
+function SunMotes() {
+  return (
+    <div className="sun-motes" aria-hidden="true">
+      {Array.from({ length: 12 }, (_, i) => (
+        <span
+          key={i}
+          className="mote"
+          style={{
+            left: `${8 + ((i * 17) % 84)}%`,
+            top: `${12 + ((i * 23) % 60)}%`,
+            animationDelay: `${(i % 6) * 0.7}s`,
+            animationDuration: `${5 + (i % 4)}s`,
+          }}
+        />
+      ))}
     </div>
   );
 }
 
 function moistureTone(moisture: number): string {
-  // Wet → greener/cooler; dry → warmer/dustier
   const m = Math.max(0, Math.min(100, moisture));
   if (m >= 70) return "field-wet";
   if (m >= 40) return "field-damp";
@@ -261,13 +334,27 @@ function moistureTone(moisture: number): string {
   return "field-parched";
 }
 
-function Cell({
-  id,
-  farm,
-}: {
-  id: LocationId;
-  farm: FarmState;
-}) {
+function MemoryPlaques() {
+  const plaques = memoryPlaques(
+    world.experiments.experiments,
+    world.experiments.current,
+  );
+  if (plaques.length === 0) return null;
+  return (
+    <div className="memory-plaques" aria-label="Inherited memories">
+      {plaques.map((p) => (
+        <aside key={p.id} className="memory-plaque">
+          <p className="font-mono text-[9px] tracking-wide uppercase opacity-70">
+            Exp #{p.sourceExperiment}
+          </p>
+          <p className="plaque-line">{p.line}</p>
+        </aside>
+      ))}
+    </div>
+  );
+}
+
+function Cell({ id, farm }: { id: LocationId; farm: FarmState }) {
   const here = agentsAt(id);
   const art: Record<LocationId, ReactNode> = {
     forest: <ForestArt />,
@@ -303,6 +390,7 @@ function Cell({
       <div className="flex min-h-0 flex-1 items-center justify-center px-2 pt-6">
         {art[id]}
       </div>
+      {id === "house" ? <MemoryPlaques /> : null}
       <div className="relative z-10 flex min-h-16 items-end justify-center gap-2 pb-2">
         {here.map((agent) => (
           <AgentFigure key={agent.id} agent={agent} />
@@ -314,30 +402,10 @@ function Cell({
 
 function ResourceHud({ farm }: { farm: FarmState }) {
   const chips = [
-    {
-      label: "Corn",
-      value: farm.resources.corn,
-      max: 100,
-      tone: "hud-corn",
-    },
-    {
-      label: "Water",
-      value: farm.resources.water,
-      max: 100,
-      tone: "hud-water",
-    },
-    {
-      label: "Wood",
-      value: farm.resources.wood,
-      max: null as number | null,
-      tone: "hud-wood",
-    },
-    {
-      label: "Seeds",
-      value: farm.resources.seeds,
-      max: null as number | null,
-      tone: "hud-seeds",
-    },
+    { label: "Corn", value: farm.resources.corn, max: 100, tone: "hud-corn" },
+    { label: "Water", value: farm.resources.water, max: 100, tone: "hud-water" },
+    { label: "Wood", value: farm.resources.wood, max: null as number | null, tone: "hud-wood" },
+    { label: "Seeds", value: farm.resources.seeds, max: null as number | null, tone: "hud-seeds" },
     {
       label: "Moisture",
       value: farm.resources.fieldMoisture,
@@ -351,11 +419,16 @@ function ResourceHud({ farm }: { farm: FarmState }) {
     <ul className="resource-hud" aria-label="Resources">
       {chips.map((chip) => {
         const pct =
-          chip.max !== null
-            ? Math.min(100, (chip.value / chip.max) * 100)
-            : null;
+          chip.max !== null ? Math.min(100, (chip.value / chip.max) * 100) : null;
+        const low =
+          (chip.label === "Corn" && chip.value < 10) ||
+          (chip.label === "Water" && chip.value < 20) ||
+          (chip.label === "Moisture" && chip.value < 20);
         return (
-          <li key={chip.label} className={cn("hud-chip", chip.tone)}>
+          <li
+            key={chip.label}
+            className={cn("hud-chip", chip.tone, low && "hud-chip-low")}
+          >
             <div className="flex items-baseline justify-between gap-2">
               <span className="font-mono text-[10px] tracking-wide text-muted uppercase">
                 {chip.label}
@@ -389,27 +462,29 @@ function weatherLabel(weather: Weather): string {
 export function FarmMap({
   compact = false,
   showHud = true,
+  spectacle = false,
 }: {
   compact?: boolean;
   showHud?: boolean;
+  spectacle?: boolean;
 }) {
   const { farm, agents } = world;
   const bob = agents.agents.find((a) => a.id === "bob");
   const alice = agents.agents.find((a) => a.id === "alice");
 
   return (
-    <figure className="grid gap-3">
+    <figure className={cn("grid gap-3", spectacle && "farm-map-spectacle")}>
       <div
-        className={cn("plot", compact && "plot-compact")}
+        className={cn("plot", compact && "plot-compact", spectacle && "plot-spectacle")}
         data-weather={farm.weather}
         data-crop={farm.field.cropStage}
         role="img"
         aria-label={`Tiny farm map. Weather ${weatherLabel(farm.weather)}. Crop ${farm.field.cropStage}. Bob at ${LOCATION_LABEL[bob?.location ?? "house"]}. Alice at ${LOCATION_LABEL[alice?.location ?? "field"]}.`}
       >
-        {(farm.weather === "rain" || farm.weather === "cloudy") && (
-          <CloudOverlay />
-        )}
+        {(farm.weather === "rain" || farm.weather === "cloudy") && <CloudOverlay />}
         {farm.weather === "rain" ? <RainOverlay /> : null}
+        {farm.weather === "drought" ? <HeatShimmer /> : null}
+        {farm.weather === "clear" ? <SunMotes /> : null}
         <div className="weather-veil" aria-hidden="true" />
         <Cell id="forest" farm={farm} />
         <Cell id="field" farm={farm} />

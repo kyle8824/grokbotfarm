@@ -1,6 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FarmMap } from "@/components/farm-map";
 import { FailureNote, MetricsBlock, SlimActionCard } from "@/components/observe";
+import {
+  CliffhangerClock,
+  ConflictChip,
+  EraLadderBar,
+  MomentBanners,
+  SurvivalMeter,
+} from "@/components/spectator";
 import { LOCATION_LABEL, WEATHER_LABEL } from "@/lib/farm/labels";
 import { world } from "@/lib/farm/world";
 
@@ -10,7 +17,7 @@ function FarmPage() {
   const { farm, agents } = world;
 
   return (
-    <div className="grid gap-8">
+    <div className="grid gap-6">
       <header className="masthead-thin">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <p className="font-mono text-xs tracking-wide text-sage uppercase">Farm</p>
@@ -26,7 +33,14 @@ function FarmPage() {
         </p>
       </header>
 
-      <FarmMap />
+      <FarmMap spectacle />
+      <ConflictChip />
+      <MomentBanners />
+      <div className="grid gap-4 lg:grid-cols-2">
+        <SurvivalMeter />
+        <CliffhangerClock />
+      </div>
+      <EraLadderBar />
       <FailureNote />
       <MetricsBlock compact />
 
