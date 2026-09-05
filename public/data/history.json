@@ -428,6 +428,84 @@
       "expect": "Wood stock up while the crop cooks, without burning another morning on the same cistern loop.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d6-ration",
+      "experiment": 1,
+      "day": 6,
+      "date": "2026-09-04",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 20).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 20).",
+      "failure": null
+    },
+    {
+      "id": "e1-d6-bob-c",
+      "experiment": 1,
+      "day": 6,
+      "date": "2026-09-04",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "Stalks just pushed into growing under clear sky. Water is the constraint that ends farms — three points a day still drip even with the ditch, and I will not let a thickening row go thirsty on my watch.",
+      "expect": "East field moisture held high so growing can push toward ripe without a dry spell.",
+      "result": "East field moisture +20% (now 78%).",
+      "failure": null
+    },
+    {
+      "id": "e1-d6-alice-c",
+      "experiment": 1,
+      "day": 6,
+      "date": "2026-09-04",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Chopped wood.",
+      "why": "Corn is thickening on its own now. Unused timber is a delay too — a woodpile before we need fence or fuel beats empty hands when the next idea needs boards.",
+      "expect": "Wood stock up while the crop cooks, without burning another morning on the same cistern loop.",
+      "result": "Wood +2 (now 5).",
+      "failure": null
+    },
+    {
+      "id": "e1-d7-today",
+      "experiment": 1,
+      "day": 7,
+      "date": "2026-09-05",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 7. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d7-bob",
+      "experiment": 1,
+      "day": 7,
+      "date": "2026-09-05",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Harvested.",
+      "why": "The stalks are ripe now. Leaving ripe corn on the stalk is how a careful farm turns into a hungry one — get it in the bin before weather or pests write a different ending.",
+      "expect": "Corn in storage, field clear, food buffer thick enough for the next stretch.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d7-alice",
+      "experiment": 1,
+      "day": 7,
+      "date": "2026-09-05",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Unused seeds are a delay, not a reserve. The moment the row clears, put the next one in — heat does not wait for a tidy schedule.",
+      "expect": "A seeded row again so we do not sit on an empty field while the cistern and ditch already work.",
+      "result": null,
+      "failure": null
     }
   ]
 }
