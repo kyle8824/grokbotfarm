@@ -11,11 +11,11 @@
         "Do not plant more than we can water."
       ],
       "today": {
-        "action": "water_field",
+        "action": "harvest",
         "location": "field",
-        "what": "Watered the field.",
-        "why": "Stalks just pushed into growing under clear sky. Water is the constraint that ends farms — three points a day still drip even with the ditch, and I will not let a thickening row go thirsty on my watch.",
-        "expect": "East field moisture held high so growing can push toward ripe without a dry spell.",
+        "what": "Harvested.",
+        "why": "The stalks are ripe now. Leaving ripe corn on the stalk is how a careful farm turns into a hungry one — get it in the bin before weather or pests write a different ending.",
+        "expect": "Corn in storage, field clear, food buffer thick enough for the next stretch.",
         "result": null,
         "failure": null
       },
@@ -23,9 +23,9 @@
         "action": "water_field",
         "location": "field",
         "what": "Watered the field.",
-        "why": "The new sprout is in and clear sky still pulls three points a day even with the ditch. Water is the constraint that ends farms — better spend eight on wet ground than watch a fresh row dry out.",
-        "expect": "East field moisture back up so the sprout holds through another clear stretch.",
-        "result": "East field moisture +20% (now 61%).",
+        "why": "Stalks just pushed into growing under clear sky. Water is the constraint that ends farms — three points a day still drip even with the ditch, and I will not let a thickening row go thirsty on my watch.",
+        "expect": "East field moisture held high so growing can push toward ripe without a dry spell.",
+        "result": "East field moisture +20% (now 78%).",
         "failure": null
       }
     },
@@ -34,27 +34,27 @@
       "name": "Alice",
       "disposition": "experimental",
       "mark": "red bandana",
-      "location": "forest",
+      "location": "field",
       "memories": [
         "Unused seeds are a delay, not a reserve.",
         "Ditches compound. Heat does not wait."
       ],
       "today": {
+        "action": "plant_seeds",
+        "location": "field",
+        "what": "Planted seeds.",
+        "why": "Unused seeds are a delay, not a reserve. The moment the row clears, put the next one in — heat does not wait for a tidy schedule.",
+        "expect": "A seeded row again so we do not sit on an empty field while the cistern and ditch already work.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "chop_wood",
         "location": "forest",
         "what": "Chopped wood.",
         "why": "Corn is thickening on its own now. Unused timber is a delay too — a woodpile before we need fence or fuel beats empty hands when the next idea needs boards.",
         "expect": "Wood stock up while the crop cooks, without burning another morning on the same cistern loop.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "draw_water",
-        "location": "pond",
-        "what": "Drew water.",
-        "why": "We just spent nothing on the cistern while the harvest and reseeding happened. Heat does not wait, and a cistern that sits still while the next soak is coming is a delay dressed as caution.",
-        "expect": "Cistern topped so tomorrow's watering does not borrow from a thin reserve.",
-        "result": "Cistern water +16 (now 60).",
+        "result": "Wood +2 (now 5).",
         "failure": null
       }
     }
