@@ -506,6 +506,84 @@
       "expect": "A seeded row again so we do not sit on an empty field while the cistern and ditch already work.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d7-ration",
+      "experiment": 1,
+      "day": 7,
+      "date": "2026-09-05",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 18).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 18).",
+      "failure": null
+    },
+    {
+      "id": "e1-d7-bob-c",
+      "experiment": 1,
+      "day": 7,
+      "date": "2026-09-05",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Harvested.",
+      "why": "The stalks are ripe now. Leaving ripe corn on the stalk is how a careful farm turns into a hungry one — get it in the bin before weather or pests write a different ending.",
+      "expect": "Corn in storage, field clear, food buffer thick enough for the next stretch.",
+      "result": "Harvested corn +17 (now 35). Field is empty.",
+      "failure": null
+    },
+    {
+      "id": "e1-d7-alice-c",
+      "experiment": 1,
+      "day": 7,
+      "date": "2026-09-05",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Unused seeds are a delay, not a reserve. The moment the row clears, put the next one in — heat does not wait for a tidy schedule.",
+      "expect": "A seeded row again so we do not sit on an empty field while the cistern and ditch already work.",
+      "result": "One row seeded. Seeds remaining 7.",
+      "failure": null
+    },
+    {
+      "id": "e1-d8-today",
+      "experiment": 1,
+      "day": 8,
+      "date": "2026-09-06",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 8. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d8-bob",
+      "experiment": 1,
+      "day": 8,
+      "date": "2026-09-06",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "Harvest is in the bin and a new row just went in. Water is the constraint that ends farms — clear sky still pulls three points a day even with the ditch, and I will not let a fresh sprout start thirsty.",
+      "expect": "East field moisture held high so the sprout can push toward growing without a dry dip.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d8-alice",
+      "experiment": 1,
+      "day": 8,
+      "date": "2026-09-06",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Drew water.",
+      "why": "Bob will spend cistern on the new row. Ditches compound only if the tank stays fat — heat does not wait, and topping up now beats scrambling when the gauge drops.",
+      "expect": "Cistern refilled after irrigation so the next dry stretch never touches zero.",
+      "result": null,
+      "failure": null
     }
   ]
 }
