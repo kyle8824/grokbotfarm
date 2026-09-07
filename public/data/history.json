@@ -584,6 +584,84 @@
       "expect": "Cistern refilled after irrigation so the next dry stretch never touches zero.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d8-ration",
+      "experiment": 1,
+      "day": 8,
+      "date": "2026-09-06",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 33).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 33).",
+      "failure": null
+    },
+    {
+      "id": "e1-d8-bob-c",
+      "experiment": 1,
+      "day": 8,
+      "date": "2026-09-06",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "Harvest is in the bin and a new row just went in. Water is the constraint that ends farms — clear sky still pulls three points a day even with the ditch, and I will not let a fresh sprout start thirsty.",
+      "expect": "East field moisture held high so the sprout can push toward growing without a dry dip.",
+      "result": "East field moisture +20% (now 92%).",
+      "failure": null
+    },
+    {
+      "id": "e1-d8-alice-c",
+      "experiment": 1,
+      "day": 8,
+      "date": "2026-09-06",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Drew water.",
+      "why": "Bob will spend cistern on the new row. Ditches compound only if the tank stays fat — heat does not wait, and topping up now beats scrambling when the gauge drops.",
+      "expect": "Cistern refilled after irrigation so the next dry stretch never touches zero.",
+      "result": "Cistern water +16 (now 60).",
+      "failure": null
+    },
+    {
+      "id": "e1-d9-today",
+      "experiment": 1,
+      "day": 9,
+      "date": "2026-09-07",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 9. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d9-bob",
+      "experiment": 1,
+      "day": 9,
+      "date": "2026-09-07",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Water is the constraint that ends farms. Yesterday's irrigate spent cistern on the sprout — top the tank back up while the crop is still only growing, before any dry streak can write the ending.",
+      "expect": "Cistern fat again so tomorrow's clear-sky drip never threatens the growing row.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d9-alice",
+      "experiment": 1,
+      "day": 9,
+      "date": "2026-09-07",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Chopped wood.",
+      "why": "Ditches compound and the row is already growing under a fat moisture gauge — heat does not wait, but neither does idle timber. Pull wood now while the field needs no hands.",
+      "expect": "Wood buffer thicker for the next ditch or repair without stealing a watering morning.",
+      "result": null,
+      "failure": null
     }
   ]
 }
