@@ -662,6 +662,84 @@
       "expect": "Wood buffer thicker for the next ditch or repair without stealing a watering morning.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d9-ration",
+      "experiment": 1,
+      "day": 9,
+      "date": "2026-09-07",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 31).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 31).",
+      "failure": null
+    },
+    {
+      "id": "e1-d9-bob-c",
+      "experiment": 1,
+      "day": 9,
+      "date": "2026-09-07",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Water is the constraint that ends farms. Yesterday's irrigate spent cistern on the sprout — top the tank back up while the crop is still only growing, before any dry streak can write the ending.",
+      "expect": "Cistern fat again so tomorrow's clear-sky drip never threatens the growing row.",
+      "result": "Cistern water +16 (now 76).",
+      "failure": null
+    },
+    {
+      "id": "e1-d9-alice-c",
+      "experiment": 1,
+      "day": 9,
+      "date": "2026-09-07",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Chopped wood.",
+      "why": "Ditches compound and the row is already growing under a fat moisture gauge — heat does not wait, but neither does idle timber. Pull wood now while the field needs no hands.",
+      "expect": "Wood buffer thicker for the next ditch or repair without stealing a watering morning.",
+      "result": "Wood +2 (now 7).",
+      "failure": null
+    },
+    {
+      "id": "e1-d10-today",
+      "experiment": 1,
+      "day": 10,
+      "date": "2026-09-09",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 10. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d10-bob",
+      "experiment": 1,
+      "day": 10,
+      "date": "2026-09-09",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Harvested.",
+      "why": "Water is the constraint that ends farms, but a ripe ear left standing while dawn still takes two corn is the other ending. Pull it while the row is ready.",
+      "expect": "Corn in the bin and an empty field before the ration can outrun the crop.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d10-alice",
+      "experiment": 1,
+      "day": 10,
+      "date": "2026-09-09",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Unused seeds are a delay, not a reserve. The second Bob clears the ear, the next row goes in — heat does not wait for an empty sack.",
+      "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
+      "result": null,
+      "failure": null
     }
   ]
 }
