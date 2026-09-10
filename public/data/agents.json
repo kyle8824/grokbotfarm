@@ -5,27 +5,27 @@
       "name": "Bob",
       "disposition": "conservative",
       "mark": "straw hat",
-      "location": "field",
+      "location": "pond",
       "memories": [
         "Water is the constraint that ends farms.",
         "Do not plant more than we can water."
       ],
       "today": {
+        "action": "draw_water",
+        "location": "pond",
+        "what": "Drew water.",
+        "why": "Water is the constraint that ends farms. Harvest filled the bin, but the cistern is what keeps a clear-sky sprout alive — top it before any dry streak can write the ending.",
+        "expect": "Cistern fatter so tomorrow's drip and any irrigate never threaten the new row.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "harvest",
         "location": "field",
         "what": "Harvested.",
         "why": "Water is the constraint that ends farms, but a ripe ear left standing while dawn still takes two corn is the other ending. Pull it while the row is ready.",
         "expect": "Corn in the bin and an empty field before the ration can outrun the crop.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "draw_water",
-        "location": "pond",
-        "what": "Drew water.",
-        "why": "Water is the constraint that ends farms. Yesterday's irrigate spent cistern on the sprout — top the tank back up while the crop is still only growing, before any dry streak can write the ending.",
-        "expect": "Cistern fat again so tomorrow's clear-sky drip never threatens the growing row.",
-        "result": "Cistern water +16 (now 76).",
+        "result": "Harvested corn +18 (now 47). Field is empty.",
         "failure": null
       }
     },
@@ -40,21 +40,21 @@
         "Ditches compound. Heat does not wait."
       ],
       "today": {
+        "action": "water_field",
+        "location": "field",
+        "what": "Watered the field.",
+        "why": "Ditches compound. Heat does not wait. The seed just went in — push moisture onto the sprout while the ditch still multiplies every pour.",
+        "expect": "East field moisture near the top so the sprout advances under clear sky.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "plant_seeds",
         "location": "field",
         "what": "Planted seeds.",
         "why": "Unused seeds are a delay, not a reserve. The second Bob clears the ear, the next row goes in — heat does not wait for an empty sack.",
         "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "chop_wood",
-        "location": "forest",
-        "what": "Chopped wood.",
-        "why": "Ditches compound and the row is already growing under a fat moisture gauge — heat does not wait, but neither does idle timber. Pull wood now while the field needs no hands.",
-        "expect": "Wood buffer thicker for the next ditch or repair without stealing a watering morning.",
-        "result": "Wood +2 (now 7).",
+        "result": "One row seeded. Seeds remaining 6.",
         "failure": null
       }
     }
