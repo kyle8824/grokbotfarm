@@ -740,6 +740,84 @@
       "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d10-ration",
+      "experiment": 1,
+      "day": 10,
+      "date": "2026-09-09",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 29).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 29).",
+      "failure": null
+    },
+    {
+      "id": "e1-d10-bob-c",
+      "experiment": 1,
+      "day": 10,
+      "date": "2026-09-09",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Harvested.",
+      "why": "Water is the constraint that ends farms, but a ripe ear left standing while dawn still takes two corn is the other ending. Pull it while the row is ready.",
+      "expect": "Corn in the bin and an empty field before the ration can outrun the crop.",
+      "result": "Harvested corn +18 (now 47). Field is empty.",
+      "failure": null
+    },
+    {
+      "id": "e1-d10-alice-c",
+      "experiment": 1,
+      "day": 10,
+      "date": "2026-09-09",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Unused seeds are a delay, not a reserve. The second Bob clears the ear, the next row goes in — heat does not wait for an empty sack.",
+      "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
+      "result": "One row seeded. Seeds remaining 6.",
+      "failure": null
+    },
+    {
+      "id": "e1-d11-today",
+      "experiment": 1,
+      "day": 11,
+      "date": "2026-09-10",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 11. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d11-bob",
+      "experiment": 1,
+      "day": 11,
+      "date": "2026-09-10",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Water is the constraint that ends farms. Harvest filled the bin, but the cistern is what keeps a clear-sky sprout alive — top it before any dry streak can write the ending.",
+      "expect": "Cistern fatter so tomorrow's drip and any irrigate never threaten the new row.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d11-alice",
+      "experiment": 1,
+      "day": 11,
+      "date": "2026-09-10",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Watered the field.",
+      "why": "Ditches compound. Heat does not wait. The seed just went in — push moisture onto the sprout while the ditch still multiplies every pour.",
+      "expect": "East field moisture near the top so the sprout advances under clear sky.",
+      "result": null,
+      "failure": null
     }
   ]
 }
