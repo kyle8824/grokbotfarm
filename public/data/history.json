@@ -818,6 +818,84 @@
       "expect": "East field moisture near the top so the sprout advances under clear sky.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d11-ration",
+      "experiment": 1,
+      "day": 11,
+      "date": "2026-09-10",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 45).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 45).",
+      "failure": null
+    },
+    {
+      "id": "e1-d11-bob-c",
+      "experiment": 1,
+      "day": 11,
+      "date": "2026-09-10",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Water is the constraint that ends farms. Harvest filled the bin, but the cistern is what keeps a clear-sky sprout alive — top it before any dry streak can write the ending.",
+      "expect": "Cistern fatter so tomorrow's drip and any irrigate never threaten the new row.",
+      "result": "Cistern water +16 (now 92).",
+      "failure": null
+    },
+    {
+      "id": "e1-d11-alice-c",
+      "experiment": 1,
+      "day": 11,
+      "date": "2026-09-10",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Watered the field.",
+      "why": "Ditches compound. Heat does not wait. The seed just went in — push moisture onto the sprout while the ditch still multiplies every pour.",
+      "expect": "East field moisture near the top so the sprout advances under clear sky.",
+      "result": "East field moisture +17% (now 100%).",
+      "failure": null
+    },
+    {
+      "id": "e1-d12-today",
+      "experiment": 1,
+      "day": 12,
+      "date": "2026-09-11",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 12. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d12-bob",
+      "experiment": 1,
+      "day": 12,
+      "date": "2026-09-11",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "Water is the constraint that ends farms. The sprout is growing under clear sky — keep the ditch-fed moisture high so the ear finishes before any dry day can steal it.",
+      "expect": "East field still soaked so tomorrow's grow step lands on ripe without a moisture scare.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d12-alice",
+      "experiment": 1,
+      "day": 12,
+      "date": "2026-09-11",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Chopped wood.",
+      "why": "Unused seeds are a delay, not a reserve — but the row is already growing. Heat does not wait, and neither does a thin woodpile while we wait on the ear.",
+      "expect": "Two more sticks in storage while the crop finishes under the ditch.",
+      "result": null,
+      "failure": null
     }
   ]
 }
