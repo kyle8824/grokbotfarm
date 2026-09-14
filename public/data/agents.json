@@ -14,18 +14,18 @@
         "action": "draw_water",
         "location": "pond",
         "what": "Drew water.",
-        "why": "Water is the constraint that ends farms. The ear is in the bin and a new row is down — top the cistern before any clear-sky drip can write the ending.",
-        "expect": "Cistern fatter so tomorrow's irrigate and the sprout never threaten each other.",
+        "why": "Water is the constraint that ends farms. Cistern is fat but not full — clear sky still sips the ditch, so top it before the growing row asks for another pour.",
+        "expect": "Cistern at the brim so tomorrow's irrigate never competes with the gauge.",
         "result": null,
         "failure": null
       },
       "yesterday": {
-        "action": "harvest",
-        "location": "field",
-        "what": "Harvested.",
-        "why": "Water is the constraint that ends farms, but a ripe ear left standing while dawn still takes two corn is the other ending. Pull it while the ditch still holds the gauge.",
-        "expect": "Corn in the bin and an empty field before the ration can outrun the crop.",
-        "result": "Harvested corn +19 (now 60). Field is empty.",
+        "action": "draw_water",
+        "location": "pond",
+        "what": "Drew water.",
+        "why": "Water is the constraint that ends farms. The ear is in the bin and a new row is down — top the cistern before any clear-sky drip can write the ending.",
+        "expect": "Cistern fatter so tomorrow's irrigate and the sprout never threaten each other.",
+        "result": "Cistern water +16 (now 92).",
         "failure": null
       }
     },
@@ -34,27 +34,27 @@
       "name": "Alice",
       "disposition": "experimental",
       "mark": "red bandana",
-      "location": "field",
+      "location": "forest",
       "memories": [
         "Unused seeds are a delay, not a reserve.",
         "Ditches compound. Heat does not wait."
       ],
       "today": {
+        "action": "chop_wood",
+        "location": "forest",
+        "what": "Chopped wood.",
+        "why": "Unused seeds are a delay, not a reserve — and the row is already growing under a full ditch. Heat does not wait; timber while the crop advances is the other compounding play.",
+        "expect": "Wood pile thicker before the ear asks for hands again.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "water_field",
         "location": "field",
         "what": "Watered the field.",
         "why": "Unused seeds are a delay, not a reserve — and this row just went in. Ditches compound. Heat does not wait. Push moisture onto the sprout while the ditch still multiplies every pour.",
         "expect": "East field moisture near the top so the sprout advances under clear sky.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "plant_seeds",
-        "location": "field",
-        "what": "Planted seeds.",
-        "why": "Unused seeds are a delay, not a reserve. The second Bob clears the ear, the next row goes in — heat does not wait for an empty sack.",
-        "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
-        "result": "One row seeded. Seeds remaining 5.",
+        "result": "East field moisture +6% (now 100%).",
         "failure": null
       }
     }
