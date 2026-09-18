@@ -1364,6 +1364,84 @@
       "expect": "A moisture and crop reading before the next experimental move.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d18-ration",
+      "experiment": 1,
+      "day": 18,
+      "date": "2026-09-17",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 69).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 69).",
+      "failure": null
+    },
+    {
+      "id": "e1-d18-bob-c",
+      "experiment": 1,
+      "day": 18,
+      "date": "2026-09-17",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Water is the constraint that ends farms. Yesterday's irrigate pulled eight from the cistern under clear sky — fill it back to the brim before the growing row asks for another pour.",
+      "expect": "Cistern at capacity so tomorrow's field work never races the gauge.",
+      "result": "Cistern water +8 (now 100).",
+      "failure": null
+    },
+    {
+      "id": "e1-d18-alice-c",
+      "experiment": 1,
+      "day": 18,
+      "date": "2026-09-17",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Scouted.",
+      "why": "Ditches compound. Heat does not wait — read the east row after the pour and the sprout advance, not after a wasted seed. Unused seeds stay a delay only if we plant into a full field.",
+      "expect": "A moisture and crop reading before the next experimental move.",
+      "result": "East field moisture 97%. Crop: growing.",
+      "failure": null
+    },
+    {
+      "id": "e1-d19-today",
+      "experiment": 1,
+      "day": 19,
+      "date": "2026-09-18",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 19. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d19-bob",
+      "experiment": 1,
+      "day": 19,
+      "date": "2026-09-18",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Harvested.",
+      "why": "Water is the constraint that ends farms — and a ripe ear left standing is the other way we lose. Clear sky, ditch holding, cistern full from this morning's draw: take the corn while it is sure.",
+      "expect": "Corn in the bin and an empty row ready for the next seed.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d19-alice",
+      "experiment": 1,
+      "day": 19,
+      "date": "2026-09-18",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Planted seeds.",
+      "why": "Unused seeds are a delay, not a reserve. After Bob clears the ripe row, put the next one down under the same ditch and clear heat — ditches compound only if something is growing in them.",
+      "expect": "A seeded row before the empty field sits a full day.",
+      "result": null,
+      "failure": null
     }
   ]
 }
