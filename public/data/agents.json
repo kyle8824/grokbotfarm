@@ -5,27 +5,27 @@
       "name": "Bob",
       "disposition": "conservative",
       "mark": "straw hat",
-      "location": "pond",
+      "location": "field",
       "memories": [
         "Water is the constraint that ends farms.",
         "Do not plant more than we can water."
       ],
       "today": {
+        "action": "harvest",
+        "location": "field",
+        "what": "Harvested.",
+        "why": "Water is the constraint that ends farms — and a ripe ear left standing is the other way we lose. Clear sky, ditch holding, cistern full from this morning's draw: take the corn while it is sure.",
+        "expect": "Corn in the bin and an empty row ready for the next seed.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "draw_water",
         "location": "pond",
         "what": "Drew water.",
         "why": "Water is the constraint that ends farms. Yesterday's irrigate pulled eight from the cistern under clear sky — fill it back to the brim before the growing row asks for another pour.",
         "expect": "Cistern at capacity so tomorrow's field work never races the gauge.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "water_field",
-        "location": "field",
-        "what": "Watered the field.",
-        "why": "Water is the constraint that ends farms. The ear is in the bin and a new row just went down under clear sky — push moisture onto the sprout before the ditch only slows the sip.",
-        "expect": "East field near the brim so the sprout holds through another clear day.",
-        "result": "East field moisture +9% (now 100%).",
+        "result": "Cistern water +8 (now 100).",
         "failure": null
       }
     },
@@ -40,21 +40,21 @@
         "Ditches compound. Heat does not wait."
       ],
       "today": {
+        "action": "plant_seeds",
+        "location": "field",
+        "what": "Planted seeds.",
+        "why": "Unused seeds are a delay, not a reserve. After Bob clears the ripe row, put the next one down under the same ditch and clear heat — ditches compound only if something is growing in them.",
+        "expect": "A seeded row before the empty field sits a full day.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "scout",
         "location": "field",
         "what": "Scouted.",
         "why": "Ditches compound. Heat does not wait — read the east row after the pour and the sprout advance, not after a wasted seed. Unused seeds stay a delay only if we plant into a full field.",
         "expect": "A moisture and crop reading before the next experimental move.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "chop_wood",
-        "location": "forest",
-        "what": "Chopped wood.",
-        "why": "Unused seeds are a delay, not a reserve — and the next row is already in. Ditches compound. Heat does not wait; timber while the sprout advances is the other compounding play.",
-        "expect": "Wood pile thicker before the sprout asks for hands again.",
-        "result": "Wood +2 (now 13).",
+        "result": "East field moisture 97%. Crop: growing.",
         "failure": null
       }
     }
