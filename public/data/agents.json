@@ -11,21 +11,21 @@
         "Do not plant more than we can water."
       ],
       "today": {
+        "action": "water_field",
+        "location": "field",
+        "what": "Watered the field.",
+        "why": "Water is the constraint that ends farms. The ear is in the bin and a fresh sprout sits under clear sky — spend from a full cistern now so the ditch keeps the row wet before the gauge ever matters.",
+        "expect": "East field moisture held high so the sprout does not dry on the first clear stretch after harvest.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "harvest",
         "location": "field",
         "what": "Harvested.",
         "why": "Water is the constraint that ends farms, but a ripe ear left standing while dawn still takes two corn is the other ending. Pull it while the ditch still holds the gauge.",
         "expect": "Corn in the bin and an empty field before the ration can outrun the crop.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "draw_water",
-        "location": "pond",
-        "what": "Drew water.",
-        "why": "Water is the constraint that ends farms. Yesterday's pour took eight from the cistern under clear sky — fill it back to the brim before the growing row asks again.",
-        "expect": "Cistern topped so tomorrow's field work never races the gauge.",
-        "result": "Cistern water +8 (now 100).",
+        "result": "Harvested corn +19 (now 99). Field is empty.",
         "failure": null
       }
     },
@@ -40,21 +40,21 @@
         "Ditches compound. Heat does not wait."
       ],
       "today": {
+        "action": "scout",
+        "location": "field",
+        "what": "Scouted.",
+        "why": "Unused seeds are a delay, not a reserve — but only when the field is empty. Heat does not wait: read the sprout and moisture after the harvest-reseed before the next experimental push.",
+        "expect": "A moisture and crop reading on the new sprout before we spend another seed or soak.",
+        "result": null,
+        "failure": null
+      },
+      "yesterday": {
         "action": "plant_seeds",
         "location": "field",
         "what": "Planted seeds.",
         "why": "Unused seeds are a delay, not a reserve. The second Bob clears the ear, the next row goes in — heat does not wait for an empty sack.",
         "expect": "A seeded row catching tomorrow's moisture while the harvest sits in the bin.",
-        "result": null,
-        "failure": null
-      },
-      "yesterday": {
-        "action": "scout",
-        "location": "field",
-        "what": "Scouted.",
-        "why": "Ditches compound. Heat does not wait — read the east row after the pour and the sprout-to-growing advance, not after a wasted seed. Unused seeds stay a delay only if we plant into a full field.",
-        "expect": "A moisture and crop reading before the next experimental move.",
-        "result": "East field moisture 97%. Crop: growing.",
+        "result": "One row seeded. Seeds remaining 2.",
         "failure": null
       }
     }
