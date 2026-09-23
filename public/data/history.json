@@ -1754,6 +1754,84 @@
       "expect": "A moisture and crop reading on the new sprout before we spend another seed or soak.",
       "result": null,
       "failure": null
+    },
+    {
+      "id": "e1-d23-ration",
+      "experiment": 1,
+      "day": 23,
+      "date": "2026-09-22",
+      "layer": "consequence",
+      "agentId": null,
+      "what": "Dawn ration: corn −2 (now 97).",
+      "why": null,
+      "expect": null,
+      "result": "Dawn ration: corn −2 (now 97).",
+      "failure": null
+    },
+    {
+      "id": "e1-d23-bob-c",
+      "experiment": 1,
+      "day": 23,
+      "date": "2026-09-22",
+      "layer": "consequence",
+      "agentId": "bob",
+      "what": "Watered the field.",
+      "why": "Water is the constraint that ends farms. The ear is in the bin and a fresh sprout sits under clear sky — spend from a full cistern now so the ditch keeps the row wet before the gauge ever matters.",
+      "expect": "East field moisture held high so the sprout does not dry on the first clear stretch after harvest.",
+      "result": "East field moisture +9% (now 100%).",
+      "failure": null
+    },
+    {
+      "id": "e1-d23-alice-c",
+      "experiment": 1,
+      "day": 23,
+      "date": "2026-09-22",
+      "layer": "consequence",
+      "agentId": "alice",
+      "what": "Scouted.",
+      "why": "Unused seeds are a delay, not a reserve — but only when the field is empty. Heat does not wait: read the sprout and moisture after the harvest-reseed before the next experimental push.",
+      "expect": "A moisture and crop reading on the new sprout before we spend another seed or soak.",
+      "result": "East field moisture 100%. Crop: sprout.",
+      "failure": null
+    },
+    {
+      "id": "e1-d24-today",
+      "experiment": 1,
+      "day": 24,
+      "date": "2026-09-23",
+      "layer": "today",
+      "agentId": null,
+      "what": "Day 24. Weather clear.",
+      "why": null,
+      "expect": null,
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d24-bob",
+      "experiment": 1,
+      "day": 24,
+      "date": "2026-09-23",
+      "layer": "decision",
+      "agentId": "bob",
+      "what": "Drew water.",
+      "why": "Water is the constraint that ends farms. Yesterday's soak pulled eight from a full cistern — refill the gauge now while the ditch holds the row, before clear sky asks again.",
+      "expect": "Cistern back near the brim so the next irrigate never starts from a short stack.",
+      "result": null,
+      "failure": null
+    },
+    {
+      "id": "e1-d24-alice",
+      "experiment": 1,
+      "day": 24,
+      "date": "2026-09-23",
+      "layer": "decision",
+      "agentId": "alice",
+      "what": "Chopped wood.",
+      "why": "Unused seeds are a delay only when the field is empty — the sprout is already advancing. Ditches compound. Heat does not wait; timber while moisture holds is the other compounding play.",
+      "expect": "Wood pile thicker before the growing row asks for hands again.",
+      "result": null,
+      "failure": null
     }
   ]
 }
